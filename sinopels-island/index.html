@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinopel's Island | Jujutsu Shenanigans Moveset Codes</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles"></div>
+
+    <!-- Cursed Energy Overlay -->
+    <div class="cursed-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showPage('home')">
+                <span class="logo-icon">⛩️</span>
+                <span class="logo-text">Sinopel's Island</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active" onclick="showPage('home')" data-page="home">
+                    <i class="fas fa-torii-gate"></i> Home
+                </a></li>
+                <li><a href="#" class="nav-link" onclick="showPage('browse')" data-page="browse">
+                    <i class="fas fa-scroll"></i> Browse Codes
+                </a></li>
+                <li><a href="#" class="nav-link" onclick="showPage('upload')" data-page="upload">
+                    <i class="fas fa-plus-circle"></i> Upload Code
+                </a></li>
+                <li><a href="#" class="nav-link" onclick="showPage('favorites')" data-page="favorites">
+                    <i class="fas fa-star"></i> Favorites
+                </a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#" onclick="showPage('home'); toggleMobileMenu()"><i class="fas fa-torii-gate"></i> Home</a>
+        <a href="#" onclick="showPage('browse'); toggleMobileMenu()"><i class="fas fa-scroll"></i> Browse Codes</a>
+        <a href="#" onclick="showPage('upload'); toggleMobileMenu()"><i class="fas fa-plus-circle"></i> Upload Code</a>
+        <a href="#" onclick="showPage('favorites'); toggleMobileMenu()"><i class="fas fa-star"></i> Favorites</a>
+    </div>
+
+    <!-- HOME PAGE -->
+    <section id="page-home" class="page active">
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">JUJUTSU SHENANIGANS</div>
+                <h1 class="hero-title">
+                    <span class="title-line">Welcome to</span>
+                    <span class="title-main">Sinopel's Island</span>
+                </h1>
+                <p class="hero-subtitle">
+                    The ultimate hub for sharing and discovering <strong>Jujutsu Shenanigans</strong> moveset codes. 
+                    Upload your custom movesets, browse community creations, and dominate the battlefield.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-glow" onclick="showPage('browse')">
+                        <i class="fas fa-search"></i> Browse Movesets
+                    </button>
+                    <button class="btn btn-secondary" onclick="showPage('upload')">
+                        <i class="fas fa-upload"></i> Upload Code
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="totalCodes">0</span>
+                        <span class="stat-label">Moveset Codes</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="totalLikes">0</span>
+                        <span class="stat-label">Total Likes</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="totalCopies">0</span>
+                        <span class="stat-label">Codes Copied</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="domain-expansion">
+                    <div class="inner-circle"></div>
+                    <div class="outer-ring"></div>
+                    <div class="energy-particles">
+                        <span></span><span></span><span></span>
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="domain-text">域展開</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Section -->
+        <div class="section-container">
+            <h2 class="section-title">
+                <span class="title-decoration">★</span>
+                Featured Movesets
+                <span class="title-decoration">★</span>
+            </h2>
+            <div class="featured-grid" id="featuredGrid"></div>
+        </div>
+
+        <!-- How It Works -->
+        <div class="section-container">
+            <h2 class="section-title">
+                <span class="title-decoration">⚡</span>
+                How It Works
+                <span class="title-decoration">⚡</span>
+            </h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-icon"><i class="fas fa-gamepad"></i></div>
+                    <h3>Get Your Code</h3>
+                    <p>Open Jujutsu Shenanigans and copy your moveset code from the game.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                    <h3>Upload It</h3>
+                    <p>Paste your code, add a title and description, then share it with the community.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-icon"><i class="fas fa-users"></i></div>
+                    <h3>Share & Discover</h3>
+                    <p>Browse other players' movesets, copy their codes, and try them in-game!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BROWSE PAGE -->
+    <section id="page-browse" class="page">
+        <div class="page-container">
+            <div class="page-header">
+                <h1><i class="fas fa-scroll"></i> Browse Moveset Codes</h1>
+                <p>Discover amazing movesets created by the community</p>
+            </div>
+
+            <div class="search-bar">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search movesets..." oninput="filterCodes()">
+                </div>
+                <div class="filter-group">
+                    <select id="categoryFilter" onchange="filterCodes()">
+                        <option value="all">All Categories</option>
+                        <option value="gojo">Gojo</option>
+                        <option value="sukuna">Sukuna</option>
+                        <option value="itadori">Itadori</option>
+                        <option value="megumi">Megumi</option>
+                        <option value="toji">Toji</option>
+                        <option value="todo">Todo</option>
+                        <option value="mahoraga">Mahoraga</option>
+                        <option value="mahito">Mahito</option>
+                        <option value="nanami">Nanami</option>
+                        <option value="yuta">Yuta</option>
+                        <option value="custom">Custom/Mixed</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <select id="sortFilter" onchange="filterCodes()">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="popular">Most Popular</option>
+                        <option value="copied">Most Copied</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="codes-grid" id="codesGrid"></div>
+
+            <div class="empty-state" id="emptyState" style="display:none;">
+                <i class="fas fa-ghost"></i>
+                <h3>No movesets found</h3>
+                <p>Be the first to upload a moveset code!</p>
+                <button class="btn btn-primary" onclick="showPage('upload')">Upload Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- UPLOAD PAGE -->
+    <section id="page-upload" class="page">
+        <div class="page-container">
+            <div class="page-header">
+                <h1><i class="fas fa-plus-circle"></i> Upload Moveset Code</h1>
+                <p>Share your custom moveset with the community</p>
+            </div>
+
+            <div class="upload-form-container">
+                <form id="uploadForm" onsubmit="submitCode(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="codeTitle">
+                                <i class="fas fa-heading"></i> Moveset Title *
+                            </label>
+                            <input type="text" id="codeTitle" placeholder="e.g., Ultimate Gojo Build" required maxlength="60">
+                            <span class="char-count"><span id="titleCount">0</span>/60</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="codeCategory">
+                                <i class="fas fa-tag"></i> Category *
+                            </label>
+                            <select id="codeCategory" required>
+                                <option value="">Select a category</option>
+                                <option value="gojo">Gojo</option>
+                                <option value="sukuna">Sukuna</option>
+                                <option value="itadori">Itadori</option>
+                                <option value="megumi">Megumi</option>
+                                <option value="toji">Toji</option>
+                                <option value="todo">Todo</option>
+                                <option value="mahoraga">Mahoraga</option>
+                                <option value="mahito">Mahito</option>
+                                <option value="nanami">Nanami</option>
+                                <option value="yuta">Yuta</option>
+                                <option value="custom">Custom/Mixed</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="uploaderName">
+                                <i class="fas fa-user"></i> Your Name *
+                            </label>
+                            <input type="text" id="uploaderName" placeholder="e.g., Sinopel" required maxlength="30">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="codeDifficulty">
+                                <i class="fas fa-fire"></i> Difficulty
+                            </label>
+                            <select id="codeDifficulty">
+                                <option value="easy">Easy</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="hard">Hard</option>
+                                <option value="extreme">Extreme</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="codeDescription">
+                            <i class="fas fa-align-left"></i> Description
+                        </label>
+                        <textarea id="codeDescription" placeholder="Describe your moveset, combos, and tips..." rows="3" maxlength="300"></textarea>
+                        <span class="char-count"><span id="descCount">0</span>/300</span>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="movesetCode">
+                            <i class="fas fa-code"></i> Moveset Code *
+                        </label>
+                        <textarea id="movesetCode" placeholder="Paste your Jujutsu Shenanigans moveset code here..." rows="6" required></textarea>
+                        <div class="code-hint">
+                            <i class="fas fa-info-circle"></i>
+                            Paste the exact code from Jujutsu Shenanigans. Make sure it's complete!
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>
+                            <i class="fas fa-tags"></i> Tags (Optional)
+                        </label>
+                        <div class="tags-input">
+                            <input type="text" id="tagInput" placeholder="Add tags (e.g., PvP, Combo, OP) and press Enter" onkeydown="addTag(event)">
+                            <div class="tags-list" id="tagsList"></div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-glow btn-full">
+                        <i class="fas fa-paper-plane"></i> Upload Moveset Code
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAVORITES PAGE -->
+    <section id="page-favorites" class="page">
+        <div class="page-container">
+            <div class="page-header">
+                <h1><i class="fas fa-star"></i> Your Favorites</h1>
+                <p>Movesets you've saved for quick access</p>
+            </div>
+
+            <div class="codes-grid" id="favoritesGrid"></div>
+
+            <div class="empty-state" id="favoritesEmpty" style="display:none;">
+                <i class="fas fa-heart-broken"></i>
+                <h3>No favorites yet</h3>
+                <p>Browse movesets and click the star to save them here!</p>
+                <button class="btn btn-primary" onclick="showPage('browse')">Browse Movesets</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CODE DETAIL MODAL -->
+    <div class="modal-overlay" id="codeModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <span class="modal-category" id="modalCategory"></span>
+                <span class="modal-difficulty" id="modalDifficulty"></span>
+            </div>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <div class="modal-meta">
+                <span><i class="fas fa-user"></i> <span id="modalAuthor"></span></span>
+                <span><i class="fas fa-calendar"></i> <span id="modalDate"></span></span>
+                <span><i class="fas fa-copy"></i> <span id="modalCopies"></span> copies</span>
+            </div>
+            <p class="modal-description" id="modalDescription"></p>
+            <div class="modal-tags" id="modalTags"></div>
+            <div class="modal-code-container">
+                <div class="code-header">
+                    <span><i class="fas fa-code"></i> Moveset Code</span>
+                    <button class="btn-copy" onclick="copyModalCode()">
+                        <i class="fas fa-copy"></i> Copy Code
+                    </button>
+                </div>
+                <pre class="modal-code" id="modalCode"></pre>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="copyModalCode()">
+                    <i class="fas fa-copy"></i> Copy Code
+                </button>
+                <button class="btn btn-secondary" id="modalFavBtn" onclick="toggleFavoriteModal()">
+                    <i class="fas fa-star"></i> Favorite
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Success!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="logo-icon">⛩️</span>
+                <span>Sinopel's Island</span>
+            </div>
+            <p>The ultimate Jujutsu Shenanigans moveset code sharing platform</p>
+            <div class="footer-links">
+                <a href="#" onclick="showPage('home')">Home</a>
+                <a href="#" onclick="showPage('browse')">Browse</a>
+                <a href="#" onclick="showPage('upload')">Upload</a>
+                <a href="#" onclick="showPage('favorites')">Favorites</a>
+            </div>
+            <p class="footer-disclaimer">
+                Sinopel's Island is a fan-made site. Not affiliated with Roblox or Jujutsu Shenanigans developers.
+            </p>
+            <p class="footer-copy">&copy; 2024 Sinopel's Island. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
